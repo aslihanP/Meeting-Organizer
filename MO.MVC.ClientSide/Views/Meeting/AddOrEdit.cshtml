@@ -1,0 +1,44 @@
+﻿@model MO.MVC.ClientSide.Models.mvcMeetingModel
+@{
+    ViewBag.Title = "AddOrEdit";
+}
+
+<div class="form-body">
+    @using (Html.BeginForm())
+    {
+        @Html.HiddenFor(model=>model.MeetingID)
+        <div class="form-group">
+            @Html.Label("Toplantı Konusu")
+            @Html.EditorFor(model=>model.MeetingTopic)
+            @Html.ValidationMessageFor(model=>model.MeetingTopic)
+        </div>
+        <div class="form-group">
+            @Html.Label("Toplantı Tarihi")
+            @Html.EditorFor(model => model.MeetingDate)
+            @Html.ValidationMessageFor(model => model.MeetingDate)
+        </div>
+        <div class="form-group">
+            @Html.Label("Başlangıç Saati")
+            @Html.EditorFor(model => model.StartTime)
+            @Html.ValidationMessageFor(model => model.StartTime)
+        </div>
+        <div class="form-group">
+            @Html.Label("Bitiş Saati")
+            @Html.EditorFor(model => model.EndTime)
+            @Html.ValidationMessageFor(model => model.EndTime)
+        </div>
+        <div class="form-group">
+            @Html.Label("Katılımcılar")
+            @Html.EditorFor(model => model.Katılımcılar)
+            @Html.ValidationMessageFor(model => model.Katılımcılar)
+        </div>
+        <div class="form-group">
+            <input type="submit" value="Kaydet" class="btn button"/>
+            <input type="reset" value="Yenile" class="btn button" />
+        </div>
+    }
+</div>
+@section scripts{
+    @System.Web.Optimization.Scripts.Render("~/bundles/jqueryval");
+    
+    }

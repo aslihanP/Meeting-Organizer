@@ -12,14 +12,19 @@ namespace MO.MVC.ClientSide.Models
 
         public int MeetingID { get; set; }
 
+        [Required(ErrorMessage ="Bu alan boş geçilemez!")]
         public string MeetingTopic { get; set; }
 
+        [Required(ErrorMessage = "Bu alan boş geçilemez!")]
         public DateTime MeetingDate { get; set; }
 
+        [Required(ErrorMessage = "Bu alan boş geçilemez!")]
         public string StartTime { get; set; }
 
+        [Required(ErrorMessage = "Bu alan boş geçilemez!")]
         public string EndTime { get; set; }
 
+        [Required(ErrorMessage = "Bu alan boş geçilemez!")]
         public string Katılımcılar { get; set; }
     }
 }

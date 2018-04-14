@@ -4,31 +4,32 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Index</h2>
-
+<br />
+<br />
 <p>
-    @Html.ActionLink("Create New", "Create")
+    <a href="@Url.Action("AddOrEdit","Meeting")" class="btn btn-default"><i class="fas fa-plus-circle"></i>   Yeni Toplantı Oluştur </a>
 </p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.MeetingTopic)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.MeetingDate)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.StartTime)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.EndTime)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Katılımcılar)
-        </th>
-        <th></th>
-    </tr>
-
+<table class="table table-striped">
+    <thead class="table-heading">
+        <tr>
+            <th>
+                @Html.DisplayName("Toplantı Konusu")
+            </th>
+            <th>
+                @Html.DisplayName("Tarih")
+            </th>
+            <th>
+                @Html.DisplayName("Başlangıç Saati")
+            </th>
+            <th>
+                @Html.DisplayName("Bitiş Saati")
+            </th>
+            <th>
+                @Html.DisplayName("Katılımcılar")
+            </th>
+            <th></th>
+        </tr>
+    </thead>
 @foreach (var item in Model) {
     <tr>
         <td>
@@ -47,11 +48,27 @@
             @Html.DisplayFor(modelItem => item.Katılımcılar)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.MeetingID}) |
-         
-            @Html.ActionLink("Delete", "Delete", new { id = item.MeetingID })
+           <a href="@Url.Action("AddOrEdit","Meeting", new { id=item.MeetingID})" class="btn btn-default"><i class="fas fa-pencil-alt"></i>  Bilgileri Düzenle</a>
+
+            <a onclick="Delete(@item.MeetingID)" class="btn btn-default"><i class="fas fa-trash-alt"></i>  Sil </a>
+
         </td>
     </tr>
 }
 
 </table>
+
+@section scripts{
+    <script>
+        $(function(){
+            var successMessage='@TempData["SuccessMessage"]'
+            if (successMessage != '')
+                alertify.success(successMessage);
+        });
+        function Delete(id){
+            alertify.confirm('Meeting Organizer', 'Bu toplantı kaydını silmek istediğinize emin misiniz ?', function () {
+                window.location.href = '@Url.Action("Delete","Meeting")/' + id;
+            }, null);
+        }
+    </script>
+    }

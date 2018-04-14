@@ -35,3 +35,8 @@ C:\Users\LENOVO\Documents\GitHub\Meeting-Organizer\MO.MVC.ClientSide\bin\System.
 C:\Users\LENOVO\Documents\GitHub\Meeting-Organizer\MO.MVC.ClientSide\obj\Debug\MO.MVC.ClientSide.csprojResolveAssemblyReference.cache
 C:\Users\LENOVO\Documents\GitHub\Meeting-Organizer\MO.MVC.ClientSide\obj\Debug\MO.MVC.ClientSide.dll
 C:\Users\LENOVO\Documents\GitHub\Meeting-Organizer\MO.MVC.ClientSide\obj\Debug\MO.MVC.ClientSide.pdb
+C:\Users\LENOVO\Documents\GitHub\Meeting-Organizer\MO.MVC.ClientSide\bin\Antlr3.Runtime.dll
+C:\Users\LENOVO\Documents\GitHub\Meeting-Organizer\MO.MVC.ClientSide\bin\System.Web.Optimization.dll
+C:\Users\LENOVO\Documents\GitHub\Meeting-Organizer\MO.MVC.ClientSide\bin\WebGrease.dll
+C:\Users\LENOVO\Documents\GitHub\Meeting-Organizer\MO.MVC.ClientSide\bin\Antlr3.Runtime.pdb
+C:\Users\LENOVO\Documents\GitHub\Meeting-Organizer\MO.MVC.ClientSide\bin\System.Web.Optimization.xml
