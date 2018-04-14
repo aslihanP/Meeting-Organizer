@@ -1,0 +1,57 @@
+﻿@model IEnumerable<MO.MVC.ClientSide.Models.mvcMeetingModel>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.MeetingTopic)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.MeetingDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.StartTime)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.EndTime)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Katılımcılar)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.MeetingTopic)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.MeetingDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.StartTime)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.EndTime)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Katılımcılar)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.MeetingID}) |
+         
+            @Html.ActionLink("Delete", "Delete", new { id = item.MeetingID })
+        </td>
+    </tr>
+}
+
+</table>
