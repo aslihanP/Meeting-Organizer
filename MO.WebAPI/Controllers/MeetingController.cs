@@ -21,6 +21,15 @@ namespace MO.WebAPI.Controllers
         {
             return db.tblMeetings;
         }
+        /// <summary>
+        /// Toplantı tarihine göre toplantı listesi oluşturulması için yapılan fonksiyon saatleri bu şekilde getirebilecektik devam edilecek.
+        /// </summary>
+        /// <param name="MeetingDate"></param>
+        /// <returns></returns>
+        public IQueryable<tblMeeting> GettblMeetingByDate(DateTime MeetingDate)
+        {
+            return GettblMeetings().Where(x=>x.MeetingDate == MeetingDate);
+        }
 
         // GET: api/Meeting/5
         [ResponseType(typeof(tblMeeting))]

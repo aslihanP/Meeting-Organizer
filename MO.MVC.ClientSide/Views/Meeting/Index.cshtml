@@ -35,9 +35,17 @@
         <td>
             @Html.DisplayFor(modelItem => item.MeetingTopic)
         </td>
+
+       
+    @if (item.MeetingDate != null)
+    {
+        DateTime dt = (DateTime)item.MeetingDate;
         <td>
-            @Html.DisplayFor(modelItem => item.MeetingDate)
+            @dt.ToShortDateString()
         </td>
+    }
+            
+       
         <td>
             @Html.DisplayFor(modelItem => item.StartTime)
         </td>

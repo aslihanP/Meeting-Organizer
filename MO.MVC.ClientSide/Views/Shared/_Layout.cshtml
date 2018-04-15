@@ -6,10 +6,11 @@
     <title>@ViewBag.Title - Meeting Organizer</title>
     @System.Web.Optimization.Styles.Render("~/Content/css")
     @System.Web.Optimization.Scripts.Render("~/bundles/modernizr")
-
-    <script defer src="https://use.fontawesome.com/releases/v5.0.10/js/all.js" integrity="sha384-slN8GvtUJGnv6ca26v8EzVaR9DC58QEwsIk9q1QXdCU8Yu8ck/tL/5szYlBbqmS+" crossorigin="anonymous"></script>
     <link href="~/Content/alertifyjs/alertify.min.css" rel="stylesheet" />
     <link href="~/Content/alertifyjs/themes/default.min.css" rel="stylesheet" />
+
+    <script defer src="https://use.fontawesome.com/releases/v5.0.10/js/all.js" integrity="sha384-slN8GvtUJGnv6ca26v8EzVaR9DC58QEwsIk9q1QXdCU8Yu8ck/tL/5szYlBbqmS+" crossorigin="anonymous"></script>
+  
 </head>
 <body>
     <div class="navbar navbar-inverse navbar-fixed-top">
@@ -21,6 +22,7 @@
                     <span class="icon-bar"></span>
                 </button>
                 @Html.ActionLink("Meeting Organizer", "Index", "Meeting", new { area = "" }, new { @class = "navbar-brand" })
+                @Html.ActionLink("Takvim", "Index", "Calendar", new { area = "" }, new { @class = "navbar-brand" })
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
@@ -28,7 +30,6 @@
             </div>
         </div>
     </div>
-
     <div class="container body-content">
         @RenderBody()
         <hr />
@@ -37,7 +38,7 @@
         </footer>
     </div>
     @System.Web.Optimization.Scripts.Render("~/bundles/jquery")
-    @System.Web.Optimization.Scripts.Render("~/bundles/bootstrap")
+    @System.Web.Optimization.Scripts.Render("~/bundles/bootstrap") 
     <script src="~/Scripts/alertify.min.js"></script>
     @RenderSection("scripts", required: false)
 </body>

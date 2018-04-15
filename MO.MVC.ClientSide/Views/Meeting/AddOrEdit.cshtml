@@ -14,7 +14,30 @@
         </div>
         <div class="form-group">
             @Html.Label("Toplantı Tarihi")
-            @Html.EditorFor(model => model.MeetingDate)
+           @if (Model.MeetingID == 0)
+           {
+            @Html.EditorFor(model => model.MeetingDate, new
+           {
+               htmlAttributes = new
+               {
+                   @class = "date-pickerMeeting",
+                   @Value = DateTime.Now.ToString("yyyy-MM-dd")
+               }
+           }
+       )
+           }
+           else
+           {
+            @Html.EditorFor(model => model.MeetingDate, new
+           {
+               htmlAttributes = new
+               {
+                   @class = "date-pickerMeeting",
+                   @Value = Model.MeetingDate.ToString("yyyy-MM-dd")
+               }
+           }
+       )
+           }
             @Html.ValidationMessageFor(model => model.MeetingDate)
         </div>
         <div class="form-group">
@@ -38,7 +61,50 @@
         </div>
     }
 </div>
+<link href="~/Content/themes/base/jquery-ui.min.css" rel="stylesheet" />
 @section scripts{
     @System.Web.Optimization.Scripts.Render("~/bundles/jqueryval");
-    
+<script src="~/Scripts/jquery-ui-1.12.1.min.js"></script>
+<script type="text/javascript">
+  $(function () {
+            $('.date-pickerMeeting').datepicker({
+                dateFormat: "yy-mm-dd",                           
+                monthNames: [ "Ocak", "Şubat", "Mart", "Nisan", "Mayıs", "Haziran", "Temmuz", "Ağustos", "Eylül", "Ekim", "Kasım", "Aralık" ],
+                dayNamesMin: [ "Pa", "Pt", "Sl", "Ça", "Pe", "Cu", "Ct" ],
+                firstDay:1,
+                minDate: 0,
+                maxDate: "+12M"
+            });
+        });
+</script>
+
+    @*Bu kısımda boş olan saatler doldurulabilir. Devam edilecek ...*@
+
+
+   @*<script type="text/javascript">
+    $(document).ready(function () {
+        $(".date-pickerMeeting").change(function () {
+            var MeetingDate = $(".date-pickerMeeting").val();
+
+            $("#StartTime").empty();
+            $.ajax({
+                type: 'POST',
+                url: '/Meeting/GetTimes?MeetingDate=' + MeetingDate,
+                dataType: 'json',
+                data:{MeetingDate:MeetingDate},
+                success: function (response) {
+                    console.log(response);
+                    $.each(response, function (index, item) {
+                        $("#StartTime").append('<option value="' + item.Value + '">' + item.Text + '</option>');
+                    });
+                },
+                error: function (ex) {
+                    alert('Failed.' + ex);
+                }
+            });
+            return false;
+        })
+    });
+</script>*@
+
     }

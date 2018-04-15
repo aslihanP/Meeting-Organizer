@@ -52,7 +52,7 @@ input,textarea{
     border-radius:0;
     padding: 10px 10px;
     font-weight:400;
-    background:#238cca;
+    background:rgba(19,35,47,0.9);
     color:#fff;
     -webkit-appearance:none;
 }

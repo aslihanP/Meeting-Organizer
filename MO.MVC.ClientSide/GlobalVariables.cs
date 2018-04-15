@@ -9,6 +9,9 @@ namespace MO.MVC.ClientSide
 {
     public static class GlobalVariables
     {
+        /// <summary>
+        /// WebAPI verilerini çektiğimz class
+        /// </summary>
 
         public static HttpClient WebApiClient = new HttpClient();
         static GlobalVariables()
