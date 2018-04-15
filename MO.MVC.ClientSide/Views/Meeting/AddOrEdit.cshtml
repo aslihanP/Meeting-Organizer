@@ -42,12 +42,19 @@
         </div>
         <div class="form-group">
             @Html.Label("Başlangıç Saati")
-            @Html.EditorFor(model => model.StartTime)
+            @if (Model.StartTime == null)
+            {
+                @Html.EditorFor(model => model.StartTime, new { htmlAttributes = new { @class = "timepicker", @Value=(DateTime.Now.Hour+1).ToString()} })
+            }
+            else
+            {
+                   @Html.EditorFor(model => model.StartTime, new { htmlAttributes = new { @class = "timepicker", @Value = Model.StartTime } })
+            }
             @Html.ValidationMessageFor(model => model.StartTime)
         </div>
         <div class="form-group">
             @Html.Label("Bitiş Saati")
-            @Html.EditorFor(model => model.EndTime)
+            @Html.EditorFor(model => model.EndTime, new { htmlAttributes = new { @class = "timepickerEnd" } })
             @Html.ValidationMessageFor(model => model.EndTime)
         </div>
         <div class="form-group">
@@ -73,10 +80,41 @@
                 dayNamesMin: [ "Pa", "Pt", "Sl", "Ça", "Pe", "Cu", "Ct" ],
                 firstDay:1,
                 minDate: 0,
-                maxDate: "+12M"
+                maxDate: "+12M",
+                showOn: 'both',
+                buttonText: '<i class="fas fa-calendar-alt"></i>'
+            });
+  });
+</script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/timepicker/1.3.5/jquery.timepicker.min.js"></script>
+    <script type="text/javascript">
+        $(function () {
+            $('.timepicker').timepicker({
+                timeFormat: 'h:mm p',
+                interval: 30,
+                minTime: '9',
+                maxTime: '6:00pm',
+                startTime: '09:00',
+                dynamic: false,
+                dropdown: true,
+                scrollbar: true
             });
         });
-</script>
+    $(function () {
+                $('.timepickerEnd').timepicker({
+                    timeFormat: 'h:mm p',
+                    interval: 30,
+                    minTime: '10',
+                    maxTime: '6:00pm',
+
+                    startTime: $('.timepicker').val(),
+                    dynamic: false,
+                    dropdown: true,
+                    scrollbar: true
+                });
+            })
+       
+    </script>
 
     @*Bu kısımda boş olan saatler doldurulabilir. Devam edilecek ...*@
 

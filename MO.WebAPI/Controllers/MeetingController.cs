@@ -19,7 +19,7 @@ namespace MO.WebAPI.Controllers
         // GET: api/Meeting
         public IQueryable<tblMeeting> GettblMeetings()
         {
-            return db.tblMeetings;
+            return db.tblMeetings.OrderByDescending(x=>x.MeetingDate);
         }
         /// <summary>
         /// Toplantı tarihine göre toplantı listesi oluşturulması için yapılan fonksiyon saatleri bu şekilde getirebilecektik devam edilecek.
